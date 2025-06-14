@@ -1,5 +1,5 @@
 .page-header {
-    background-color: #C25100;
+    background-color: #bb5b3e;
     margin-top: 0;
     margin-bottom: 40px;
     padding: 20px 20px 20px 40px;
@@ -55,17 +55,33 @@ h4 {
 .post > .date,
 .post > .actions {
     float: right;
+    display:block;
+    text-align: right;
+}
+
+.post > .author,
+.post > .actions {
+    float: right;
+    display: block;
+    text-align: right;
+    margin-left: 1em;
 }
 
 .btn-secondary,
 .btn-secondary:visited {
-    color: #C25100;
+    color: #020202;
     background: none;
-    border-color: #C25100;
+    border-color: #bb5b3e;
     margin-left: 15px;
 }
 
 .btn-secondary:hover {
     color: #FFFFFF;
-    background-color: #C25100;
+    background-color: #d4d4d4;
+}
+
+.avatar-img {
+    max-width: 150px;
+    max-height: 150px;
+    object-fit: cover; /* fajne, jeśli chcesz przyciąć obraz, żeby się ładnie dopasował */
 }

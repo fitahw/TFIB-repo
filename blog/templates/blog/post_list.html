@@ -1,8 +1,13 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+    <form method="GET" action="{% url 'post_list' %}">
+        <input type="text" name="q" placeholder="Szukaj postów..." value="{{ request.GET.q }}">
+        <button type="submit">Szukaj</button>
+    </form>
     {% for post in posts %}
         <article class="post">
+            <p class="author">{{ post.author }}</p>
             <time class="date">
                 {{ post.published_date }}
             </time>

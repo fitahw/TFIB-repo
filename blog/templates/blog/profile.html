@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+<h1>{{ profile.user.username }}</h1>
+
+{% if profile.avatar %}
+    <img src="{{ profile.avatar.url }}" alt="Avatar" class="avatar-img"/>
+{% else %}
+    <img src="{% static 'avatar/base.jpg' %}" alt="Avatar" class="avatar-img"/>
+{% endif %}
+
+<p>Email: 
+  {% if profile.show_email_publicly %}
+    {{ profile.user.email }}
+  {% else %}
+    <i>Ukryty</i>
+  {% endif %}
+</p>
+
+<h2>Opis</h2>
+<p>{{ profile.description|default:"Brak opisu" }}</p>
+{% endblock %}

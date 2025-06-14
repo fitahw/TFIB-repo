@@ -1,0 +1,27 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+
+<h1>{{ profile.user.username }}</h1>
+
+{% if profile.avatar %}
+    <img src="{{ profile.avatar.url }}" alt="Avatar" class="avatar-img"/>
+{% else %}
+    <img src="{% static 'avatar/base.jpg' %}" alt="Avatar" class="avatar-img"/>
+{% endif %}
+
+<p>Email:
+    {{ profile.user.email }}
+</p>
+
+<h2>Opis</h2>
+<p>{{ profile.description|default:"Brak opisu" }}</p>
+
+<h2>Edytuj profil</h2>
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Zapisz zmiany</button>
+</form>
+
+<a href="{% url 'password_change' %}">Zmień hasło</a>
+{% endblock %}
